@@ -1,27 +1,20 @@
 <page>
     <actionBar title="Home" />
-    <gridLayout>
-        <label class="info">
-            <formattedString>
-                <span class="fas" text="&#xf135;" />
-                <span text=" {message}" />
-            </formattedString>
-        </label>
-    </gridLayout>
+    <button on:tap={openPopover} >Open Popover</button>
 </page>
 
 <script lang="ts">
-    let message: string = "Blank Svelte Native App"
+    import { showPopover } from '@nativescript-community/ui-popover/svelte';
+    import Content from './Content.svelte';
+
+    function openPopover() {
+        showPopover({
+            view: Content,
+            props: {}
+        });
+    };
 </script>
 
 <style>
-    .info .fas {
-        color: #3A53FF;
-    }
 
-    .info {
-        font-size: 20;
-        horizontal-align: center;
-        vertical-align: center;
-    }
 </style>
